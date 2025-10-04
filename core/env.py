@@ -55,7 +55,7 @@ class GridEnv:
         return window.astype(np.float32)
 
     def _get_obs(self):
-        """Return agent's observation (local window + relative goal position)"""
+        """Return agent's observation"""
         local = self._get_local_window(self.agent_pos)
         dx = (self.goal[0] - self.agent_pos[0]) / max(1, self.size - 1)
         dy = (self.goal[1] - self.agent_pos[1]) / max(1, self.size - 1)

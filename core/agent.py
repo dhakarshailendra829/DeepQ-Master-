@@ -6,15 +6,11 @@ import random
 import numpy as np
 from collections import deque, namedtuple
 
-# -----------------------
 # Constants
-# -----------------------
 Transition = namedtuple('Transition', ('state', 'action', 'reward', 'next_state', 'done'))
 ACTION_SPACE = 5  # up, down, left, right, stay
 
-# -----------------------
 # Q-Network
-# -----------------------
 class QNetwork(nn.Module):
     def __init__(self, input_dim, output_dim):
         super().__init__()
@@ -27,9 +23,7 @@ class QNetwork(nn.Module):
         x = F.relu(self.fc2(x))
         return self.fc3(x)
 
-# -----------------------
 # Replay Buffer
-# -----------------------
 class ReplayBuffer:
     def __init__(self, capacity=50000):
         self.buffer = deque(maxlen=capacity)
@@ -44,9 +38,7 @@ class ReplayBuffer:
     def __len__(self):
         return len(self.buffer)
 
-# -----------------------
 # DQN Agent
-# -----------------------
 class DQNAgent:
     def __init__(self, state_dim, action_dim, lr=1e-3, gamma=0.99, buffer_capacity=50000, batch_size=64, target_update=1000):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

@@ -24,7 +24,7 @@ def plot_grid(env, path=[], figsize=(4,4)):
     # Agent path
     for pos in path:
         ar, ac = pos
-        display[ar, ac] = [0.2, 0.4, 1.0]  # path blue
+        display[ar, ac] = [0.2, 0.4, 1.0] 
 
     plt.figure(figsize=figsize)
     plt.imshow(display, origin='upper')
