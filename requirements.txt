@@ -3,3 +3,5 @@ torch
 numpy
 matplotlib
 pillow
+pandas
+seaborn
